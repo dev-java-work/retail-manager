@@ -1,10 +1,8 @@
 package com.retailmanager.shop.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +15,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.retailmanager.shop.domain.Shop;
-import com.retailmanager.shop.domain.ShopAddress;
 import com.retailmanager.shop.service.ShopService;
 import com.retailmanager.shop.service.exception.ShopAlreadyExistsException;
+
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 
 @RestController
 public class ShopController {
@@ -39,12 +39,20 @@ public class ShopController {
         this.shopService = shopService;
     }
 
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "Authorization", value = "Authorization token", 
+                         required = true, dataType = "string", paramType = "header")
+    })
     @RequestMapping(value = "/shop", method = RequestMethod.POST)
     public Shop addShop(@RequestBody final Shop shop) {
         LOGGER.debug("Received request to create the {}", shop);
         return shopService.save(shop);
     }
 
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "Authorization", value = "Authorization token", 
+                         required = true, dataType = "string", paramType = "header")
+    })
     @RequestMapping(value = "/shop", method = RequestMethod.GET)
     public List<Shop> listShop() {
         LOGGER.debug("Received request to list all shop");

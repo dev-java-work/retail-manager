@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class TokenAuthenticationService {
 
-    private long EXPIRATIONTIME = 1000 * 60 * 60 * 24 * 10; // 10 days
+    private long EXPIRATIONTIME = 1000 * 60 * 2; // 2 min
     private String secret = "ThisIsASecret";
     private String tokenPrefix = "Bearer";
     private String headerString = "Authorization";
@@ -20,6 +20,7 @@ public class TokenAuthenticationService {
         // We generate a token now.
         String JWT = Jwts.builder()
                     .setSubject(username)
+                    .setIssuedAt(new Date(System.currentTimeMillis()))
                     .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
                     .signWith(SignatureAlgorithm.HS512, secret)
                     .compact();
