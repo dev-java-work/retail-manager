@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.retailmanager.shop.domain.Shop;
 import com.retailmanager.shop.domain.ShopAddress;
+import com.retailmanager.shop.domain.ShopVO;
 
 public class ShopUtil {
 
@@ -20,9 +21,9 @@ public class ShopUtil {
     private ShopUtil() {
     }
 
-    public static Shop addShop() {
+    public static ShopVO addShop() {
     	ShopAddress address = new ShopAddress(0, shopNumber, postCode);
-        return new Shop(0,NAME,address,LONGITUDE,LATITUDE) {
+        return new ShopVO(0,NAME,address,LONGITUDE,LATITUDE) {
 		};
     }
 
@@ -34,5 +35,13 @@ public class ShopUtil {
         }
         return shopList;
     }
+
+	public static ShopVO addShop(String shopName,String postCode) {
+		ShopAddress address = new ShopAddress(0, shopNumber, postCode);
+	
+		
+        return new ShopVO(0,shopName,address,0.0,0.0) ;
+		
+	}
 
 }

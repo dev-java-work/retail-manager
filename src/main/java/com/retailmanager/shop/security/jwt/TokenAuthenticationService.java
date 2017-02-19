@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class TokenAuthenticationService {
 
-    private long EXPIRATIONTIME = 1000 * 60 * 2; // 2 min
+    private long EXPIRATIONTIME = 1000 * 60 * 20; // 2 min
     private String secret = "ThisIsASecret";
     private String tokenPrefix = "Bearer";
     private String headerString = "Authorization";

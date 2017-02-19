@@ -33,7 +33,7 @@ public class Shop {
 	@JoinColumn(name="id")
 	private ShopAddress shopAddress;
 	
-	
+
 	@NotNull
 	@Column(name = "longitude", nullable = false)
 	private double longitude;
@@ -82,6 +82,7 @@ public class Shop {
 		return longitude;
 	}
 
+	
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
@@ -90,8 +91,14 @@ public class Shop {
 		return latitute;
 	}
 
+
 	public void setLatitute(double latitute) {
 		this.latitute = latitute;
+	}
+	@Override
+	public String toString() {
+		return "Shop [id=" + id + ", shopName=" + shopName + ", shopAddress=" + shopAddress + ", longitude=" + longitude
+				+ ", latitute=" + latitute + "]";
 	}
 	
 	

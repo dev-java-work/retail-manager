@@ -12,6 +12,21 @@ Quick start
 -----------
 1. `mvn package`
 2. `java -jar target/example-spring-boot-rest-1.0-SNAPSHOT.jar`
-3. Point your browser to [http://localhost:8080](http://localhost:8080)
-4. `curl -X POST -d '{"id":1,"shopName":"name","shopAddress":{"id":1,"shopNumber":"123","postCode":"700047"},"longitude":1234.34,"latitute":67.76}' http://localhost:8080/shop`
-5. Refresh the page
+3. Get the short-lived authorization token from response header
+from localhost:8080/login post with username and password
+{"username":"","password":""}
+
+4. `curl -X POST --header "Content-Type: application/json" --header "Accept: */*" --header "Authorization: eyJ....." -d "{
+  \"shopAddress\": {
+    \"postCode\": \"string\",
+    \"shopNumber\": \"string\"
+  },
+  \"shopName\": \"string\"
+}" "http://localhost:8080/shop"`
+5. Get all the list of Shop
+curl -X GET --header "Accept: */*" --header "Authorization: eyJhbGciOi" "http://localhost:8080/shop"
+
+6.Get the nearest Shop
+curl -X GET --header "Accept: */*" --header "Authorization: eyJhbGci" "http://localhost:8080/shop/nearest/19.0000/72.09823"
+
+7.Browse localhost:8080/swagger-ui.html for API documentation

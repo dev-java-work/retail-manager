@@ -15,9 +15,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.retailmanager.shop.domain.Shop;
 import com.retailmanager.shop.repository.ShopRepository;
+
 import com.retailmanager.shop.util.ShopUtil;
 
 
@@ -27,11 +29,14 @@ public class ShopServiceImplTest {
 
     @Mock
     private ShopRepository shopRepository;
+    
+   
 
     private ShopService ShopService;
 
     @Before
     public void setUp() throws Exception {
+    	
         ShopService = new ShopServiceImpl(shopRepository);
     }
 
@@ -88,5 +93,6 @@ public class ShopServiceImplTest {
         assertTrue(list.isEmpty());
         verify(shopRepository, times(1)).findAll();
     }
-
+    
+    
 }
