@@ -11,7 +11,7 @@ Requirements
 Quick start
 -----------
 1. `mvn package`
-2. `java -jar target/example-spring-boot-rest-1.0-SNAPSHOT.jar`
+2. `java -jar target/retail-manager-1.0-SNAPSHOT.jar`
 3. Get the short-lived authorization token from response header
 from localhost:8080/login post with username and password
 {"username":"","password":""}
