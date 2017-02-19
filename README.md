@@ -12,6 +12,7 @@ Requirements
 * [Apache Maven 3.x](http://maven.apache.org/)
 
 Quick start(Gradle)
+-----------
 1.'gradle build'
 2.`java -jar build/libs/retail-manager-1.0-SNAPSHOT.jar`
 Quick start(Maven)
