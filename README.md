@@ -11,6 +11,8 @@ Requirements
  OR
 * [Apache Maven 3.x](http://maven.apache.org/)
 
+* update with proper api key for Google map service in shop.properties under resource
+
 Quick start(Gradle)
 -----------
 1.'gradle build'
